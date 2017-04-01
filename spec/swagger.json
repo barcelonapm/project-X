@@ -1,0 +1,302 @@
+{
+    "swagger": "2.0",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "host": "barcelonapm.github.io",
+    "basePath": "/",
+    "info": {
+        "description": "Project-X Swagger Specification",
+        "version": "0.0.1",
+        "title": "Barcelona PM - project-X",
+        "termsOfService": "http://barcelona.pm.org/#bugs",
+        "contact": {
+            "email": "barcelona-pm@pm.org",
+            "url": "https://www.meetup.com/barcelonapm/"
+        },
+        "license": {
+            "name": "Dummy 2.0",
+            "url": "http://barcelona.pm.org/"
+        },
+        "x-logo": {
+            "url": "https://secure.meetupstatic.com/photos/event/5/b/1/2/600_456143314.jpeg"
+        }
+    },
+    "externalDocs": {
+        "description": "Our Cool Project",
+        "url": "https://github.com/barcelonapm/project-X"
+    },
+    "produces": [
+        "application/json",
+        "application/xml"
+    ],
+    "consumes": [
+        "application/json",
+        "application/xml"
+    ],
+    "tags": [
+        {
+            "name": "Dates",
+            "description": "Operations about dates"
+        },
+        {
+            "name": "Enroll",
+            "description": "Operations about Enrolling"
+        },
+        {
+            "name": "Price",
+            "description": "Operations about Price"
+        },
+        {
+            "name": "Schedule",
+            "description": "Operations about Schedule"
+        },
+        {
+            "name": "Speakers",
+            "description": "Operations about Speaker"
+        },
+        {
+            "name": "Title",
+            "description": "Operations about Talk Titles"
+        }
+    ],
+    "securityDefinitions": {
+        "main_auth": {
+            "type": "oauth2",
+            "authorizationUrl": "http://example.com/api/oauth/dialog",
+            "flow": "implicit",
+            "scopes": {
+                "read:speaker": "read speakers info",
+                "write:speaker": "modify speakers",
+                "create:speaker": "create speakers",
+                "delete:speaker": "delete speakers"
+            }
+        },
+        "api_key": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "api_key"
+        }
+    },
+    "paths": {
+        "/speakers/{speakerId}": {
+            "parameters": [
+                {
+                    "$ref": "#/parameters/pretty"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Speakers"
+                ],
+                "summary": "Get Speaker by Id.",
+                "description": "Retrieve the Speaker identified by its Id Code.",
+                "operationId": "getSpeakerById",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/speakerId"
+                    }
+                ],
+                "security": [
+                    {
+                        "main_auth": [
+                            "read:speaker"
+                        ]
+                    },
+                    {
+                        "api_key": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/Speaker"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Speaker not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Speakers"
+                ],
+                "summary": "Create Speaker",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "createSpeaker",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/speakerId"
+                    },
+                    {
+                        "$ref": "#/parameters/speakerBody"
+                    }
+                ],
+                "security": [
+                    {
+                        "main_auth": [
+                            "create:speaker"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Invalid Speaker supplied"
+                    },
+                    "404": {
+                        "description": "Speaker not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Speakers"
+                ],
+                "summary": "Updated Speaker",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "updateSpeaker",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/speakerId"
+                    },
+                    {
+                        "$ref": "#/parameters/speakerBody"
+                    }
+                ],
+                "security": [
+                    {
+                        "main_auth": [
+                            "write:speaker"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Invalid Speaker supplied"
+                    },
+                    "404": {
+                        "description": "Speaker not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Speakers"
+                ],
+                "summary": "Delete Speaker by Id.",
+                "description": "Delete the Speaker identified by its Id Code.",
+                "operationId": "deleteSpeakerById",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/speakerId"
+                    }
+                ],
+                "security": [
+                    {
+                        "main_auth": [
+                            "delete:speaker"
+                        ]
+                    },
+                    {
+                        "api_key": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Speaker not found"
+                    }
+                }
+            }
+        }
+    },
+    "parameters": {
+        "pretty": {
+            "name": "pretty",
+            "in": "query",
+            "description": "Pretty print response",
+            "type": "boolean"
+        },
+        "speakerId": {
+            "name": "speakerId",
+            "in": "path",
+            "description": "Speaker Identifier",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "speakerBody": {
+            "name": "speakerBody",
+            "in": "body",
+            "description": "Body Definition for Speaker Object.",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/Speaker"
+            }
+        }
+    },
+    "definitions": {
+        "Email": {
+            "description": "User email address",
+            "type": "string",
+            "format": "email",
+            "example": "john.smith@example.com"
+        },
+        "Speaker": {
+            "type": "object",
+            "properties": {
+                "speakerId": {
+                    "description": "Speaker Identifier",
+                    "type": "integer",
+                    "format": "int64",
+                    "minLength": 1,
+                    "example": 1
+                },
+                "firstName": {
+                    "description": "User first name",
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "John"
+                },
+                "lastName": {
+                    "description": "User last name",
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "Smith"
+                },
+                "email": {
+                    "$ref": "#/definitions/Email"
+                }
+            }
+        }
+    }
+}
