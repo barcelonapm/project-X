@@ -19,10 +19,7 @@ build: ## Build docker image with name LOCAL_IMAGE (NAME:RELEASE_VERSION).
 	docker build -f $(THISDIR_PATH)/Dockerfile -t $(LOCAL_IMAGE) $(PROJECT_PATH)
 
 test: ## Test built LOCAL_IMAGE (NAME:RELEASE_VERSION).
-	docker run --rm -u 10000001 --name $(RELEASE_VERSION) -t -p 8080:8080 -d $(LOCAL_IMAGE)
-	@sleep 1
-	curl localhost:8080
-	docker kill $(RELEASE_VERSION)
+	docker run --rm -u 1001 --entrypoint=carton $(LOCAL_IMAGE) exec prove -lv
 
 run: ## Run the docker in the local machine.
 	docker run --rm -u 1001 --name $(RELEASE_VERSION) -i -t -p 8080:8080 $(LOCAL_IMAGE)
