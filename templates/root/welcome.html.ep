@@ -1,4 +1,32 @@
 % layout 'default';
-% title 'Welcome to project-x';
-<h2>Project X</h2>
-<p>This page is a stub for barcelona.pm project-x</p>
+% title '';
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand">Project X</h3>
+          <nav class="nav nav-masthead">
+            <a class="nav-link active" href="/">Home</a>
+            <a class="nav-link" href="/about">About</a>
+            <a class="nav-link" href="/signin">Signin</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="inner cover">
+        <h1 class="cover-heading">Welcome developer!</h1>
+        <p class="lead">This will be the amazing app created by the folks at barcelona.pm to solve their X problem and have fun (and lots of beer) while doing it.</p>
+        <p class="lead">
+          <a href="https://github.com/barcelonapm/project-X" class="btn btn-lg btn-secondary">Learn more</a>
+        </p>
+      </div>
+
+      <div class="mastfoot">
+        <div class="inner">
+          <p>By <a href="https://barcelona.pm">barcelona.pm</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
