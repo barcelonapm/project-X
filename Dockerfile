@@ -1,4 +1,4 @@
-FROM perl:5.24.1
+FROM perl:5.24
 LABEL authors="Daniel Cesario <dcesario@redhat.com>"
 
 RUN cpanm Carton
@@ -13,8 +13,10 @@ RUN groupadd -r xman -g 1001 \
 
 RUN carton install --deployment
 
-EXPOSE 8080
+#Setting the PostgreSQL Host
+ENV PG_HOST=postgresql
 
 USER 1001
+EXPOSE 8080
 ENTRYPOINT ["carton", "exec", "hypnotoad"]
 CMD ["-f", "/opt/project-x/script/project-x"]

@@ -1,0 +1,13 @@
+version: '2'
+services:
+  mojo:
+    image: project-x:latest
+    ports:
+     - "8080:8080"
+    depends_on:
+     - postgresql
+  postgresql:
+    image: postgres:9.6-alpine
+    restart: always
+    volumes:
+        - ./pgdata:/var/lib/postgresql

@@ -1,5 +1,7 @@
 #Avoid large context send to Docker Deamon
 Dockerfile
+docker-compose.yml
 Makefile
 README.md
 local/*
+pgdata/*
