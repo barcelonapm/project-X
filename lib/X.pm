@@ -17,7 +17,7 @@ sub setup_routes {
     $r->get('/')->to('root#welcome');
 
     $r->get('/signin')->to('auth#signin');
-    $r->get('/signin/oauth/:provider')->to('auth#oauth_with');
+    $r->get('/signin/oauth/:provider')->to('auth#oauth_with')->name('oauth_with');
 }
 
 # Initialize app plugins...
