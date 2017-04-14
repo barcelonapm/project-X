@@ -15,6 +15,8 @@ RUN carton install --deployment
 
 #Setting the PostgreSQL Host
 ENV PG_HOST=postgresql
+#ENV OAUTH_GITHUB_KEY
+#ENV OAUTH_GITHUB_SECRET
 
 USER 1001
 EXPOSE 8080

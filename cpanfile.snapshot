@@ -14,6 +14,7 @@ DISTRIBUTIONS
       IO::Socket::SSL::Utils 2.014
     requirements:
       ExtUtils::MakeMaker 0
+      Mozilla::CA 0
       Net::SSLeay 1.46
       Scalar::Util 0
   Mojolicious-7.30
@@ -146,6 +147,14 @@ DISTRIBUTIONS
       IO::Socket::SSL 1.94
       Mojolicious 6.0
       Test::More 0.88
+  Mozilla-CA-20160104
+    pathname: A/AB/ABH/Mozilla-CA-20160104.tar.gz
+    provides:
+      Mozilla::CA 20160104
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test 0
+      perl 5.006
   Net-SSLeay-1.81
     pathname: M/MI/MIKEM/Net-SSLeay-1.81.tar.gz
     provides:

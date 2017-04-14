@@ -4,6 +4,8 @@
 NAME = project-x
 NAMESPACE = barcelonapm
 RELEASE_VERSION ?= latest
+OAUTH_GITHUB_KEY ?= ''
+OAUTH_GITHUB_SECRET ?= ''
 LOCAL_IMAGE := $(NAME):$(RELEASE_VERSION)
 REMOTE_IMAGE := $(NAMESPACE)/$(LOCAL_IMAGE)
 
@@ -19,10 +21,10 @@ build: ## Build docker image with name LOCAL_IMAGE (NAME:RELEASE_VERSION).
 	docker build -f $(THISDIR_PATH)/Dockerfile -t $(LOCAL_IMAGE) $(PROJECT_PATH)
 
 test: ## Test built LOCAL_IMAGE (NAME:RELEASE_VERSION).
-	docker-compose run --rm -u 1001 --entrypoint=carton mojo exec prove -lv
+	docker-compose run --rm -u 1001 -e OAUTH_GITHUB_KEY=$(OAUTH_GITHUB_KEY) -e OAUTH_GITHUB_SECRET=$(OAUTH_GITHUB_SECRET) --entrypoint=carton mojo exec prove -lv
 
 run_image: ## Run the Application Docker image in the local machine.
-	docker-compose run --rm -u 1001 --name mojo -i -t -p 8080:8080 $(LOCAL_IMAGE)
+	docker run --rm -u 1001 --name mojo -e OAUTH_GITHUB_KEY=$(OAUTH_GITHUB_KEY) -e OAUTH_GITHUB_SECRET=$(OAUTH_GITHUB_SECRET) -i -t -p 8080:8080 $(LOCAL_IMAGE)
 
 run: ## Run the Application Docker Compose in the local machine.
 	docker-compose up 

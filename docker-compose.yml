@@ -1,6 +1,9 @@
 version: '2'
 services:
   mojo:
+    environment:
+      - OAUTH_GITHUB_KEY=${OAUTH_GITHUB_KEY}
+      - OAUTH_GITHUB_SECRET=${OAUTH_GITHUB_SECRET}
     image: project-x:latest
     ports:
      - "8080:8080"
