@@ -16,3 +16,6 @@ tags
 
 ##Mac DS_Store
 *.DS_Store
+
+## Credentials
+oauth.sh
