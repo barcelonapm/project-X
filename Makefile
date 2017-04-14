@@ -19,10 +19,13 @@ build: ## Build docker image with name LOCAL_IMAGE (NAME:RELEASE_VERSION).
 	docker build -f $(THISDIR_PATH)/Dockerfile -t $(LOCAL_IMAGE) $(PROJECT_PATH)
 
 test: ## Test built LOCAL_IMAGE (NAME:RELEASE_VERSION).
-	docker run --rm -u 1001 --entrypoint=carton $(LOCAL_IMAGE) exec prove -lv
+	docker-compose run --rm -u 1001 --entrypoint=carton mojo exec prove -lv
 
-run: ## Run the docker in the local machine.
-	docker run --rm -u 1001 --name $(RELEASE_VERSION) -i -t -p 8080:8080 $(LOCAL_IMAGE)
+run_image: ## Run the Application Docker image in the local machine.
+	docker-compose run --rm -u 1001 --name mojo -i -t -p 8080:8080 $(LOCAL_IMAGE)
+
+run: ## Run the Application Docker Compose in the local machine.
+	docker-compose up 
 
 kill: ## Kill the docker in the local machine.
 	docker kill $(RELEASE_VERSION)
@@ -41,6 +44,7 @@ pull: ## Pull the docker from the Registry
 
 clean: ## Clean local images from this build.
 	docker rmi $(LOCAL_IMAGE) --force
+	rm -rf ./compose/pgdata
 
 # Check http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help: ## Print this help

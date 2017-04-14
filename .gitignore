@@ -19,3 +19,6 @@ tags
 
 ## Credentials
 oauth.sh
+
+##PostgreSQL Data
+pgdata/*
