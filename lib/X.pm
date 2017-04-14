@@ -15,6 +15,8 @@ sub setup_routes {
     my $r = $app->routes;
 
     $r->get('/')->to('root#welcome');
+    $r->get('/_env')->to( cb => sub { shift->render( json => \%ENV ) } );
+
 
     $r->get('/signin')->to('auth#signin');
     $r->get('/signin/oauth/:provider')->to('auth#oauth_with')->name('oauth_with');
