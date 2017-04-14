@@ -1,4 +1,4 @@
-FROM perl:5.24
+FROM perl:5.24.1
 LABEL authors="Daniel Cesario <dcesario@redhat.com>"
 
 RUN cpanm Carton
