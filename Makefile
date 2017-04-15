@@ -4,8 +4,14 @@
 NAME = project-x
 NAMESPACE = barcelonapm
 RELEASE_VERSION ?= latest
+
+#Deployment environment
+ENVIRONMENT ?= devel
+
+#Oauth Secrets
 OAUTH_GITHUB_KEY ?= ''
 OAUTH_GITHUB_SECRET ?= ''
+
 LOCAL_IMAGE := $(NAME):$(RELEASE_VERSION)
 REMOTE_IMAGE := $(NAMESPACE)/$(LOCAL_IMAGE)
 
@@ -23,14 +29,15 @@ build: ## Build docker image with name LOCAL_IMAGE (NAME:RELEASE_VERSION).
 test: ## Test built LOCAL_IMAGE (NAME:RELEASE_VERSION).
 	docker-compose run --rm -u 1001 -e OAUTH_GITHUB_KEY=$(OAUTH_GITHUB_KEY) -e OAUTH_GITHUB_SECRET=$(OAUTH_GITHUB_SECRET) --entrypoint=carton mojo exec prove -lv
 
-run_image: ## Run the Application Docker image in the local machine.
+run_image: build ## Run the Application Docker image in the local machine.
 	docker run --rm -u 1001 --name mojo -e OAUTH_GITHUB_KEY=$(OAUTH_GITHUB_KEY) -e OAUTH_GITHUB_SECRET=$(OAUTH_GITHUB_SECRET) -i -t -p 8080:8080 $(LOCAL_IMAGE)
 
-run: ## Run the Application Docker Compose in the local machine.
-	docker-compose up 
+run: build ## Run the Application Docker Compose in the local machine.
+	ENVIRONMENT=$(ENVIRONMENT) \
+	docker-compose up --force-recreate 
 
-kill: ## Kill the docker in the local machine.
-	docker kill $(RELEASE_VERSION)
+kill: ## Kill the compose in the local machine.
+	docker-compose stop
 
 bash: ## Start bash in the build IMAGE_NAME.
 	docker run --rm --entrypoint=/bin/bash -it $(LOCAL_IMAGE)
@@ -45,8 +52,10 @@ pull: ## Pull the docker from the Registry
 	docker pull $(REMOTE_IMAGE)
 
 clean: ## Clean local images from this build.
+	docker-compose rm -f
 	docker rmi $(LOCAL_IMAGE) --force
-	rm -rf ./compose/pgdata
+	docker rmi postgres:9.6-alpine --force
+	rm -rf ./pgdata
 
 # Check http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help: ## Print this help

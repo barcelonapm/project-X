@@ -2,6 +2,7 @@ version: '2'
 services:
   mojo:
     environment:
+      - ENVIRONMENT=${ENVIRONMENT}
       - OAUTH_GITHUB_KEY=${OAUTH_GITHUB_KEY}
       - OAUTH_GITHUB_SECRET=${OAUTH_GITHUB_SECRET}
     image: project-x:latest
@@ -9,8 +10,15 @@ services:
      - "8080:8080"
     depends_on:
      - postgresql
+    volumes:
+      - ./lib:/opt/project-x/lib
+      - ./public:/opt/project-x/public
+      - ./templates:/opt/project-x/templates
   postgresql:
     image: postgres:9.6-alpine
     restart: always
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_USER=postgres
     volumes:
-        - ./pgdata:/var/lib/postgresql
+      - ./pgdata:/var/lib/postgresql

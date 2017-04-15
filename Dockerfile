@@ -15,10 +15,8 @@ RUN carton install --deployment
 
 #Setting the PostgreSQL Host
 ENV PG_HOST=postgresql
-#ENV OAUTH_GITHUB_KEY
-#ENV OAUTH_GITHUB_SECRET
 
 USER 1001
 EXPOSE 8080
-ENTRYPOINT ["carton", "exec", "hypnotoad"]
-CMD ["-f", "/opt/project-x/script/project-x"]
+ENTRYPOINT ["/opt/project-x/entrypoint.sh"]
+CMD ["/opt/project-x/script/project-x"]
