@@ -1,5 +1,6 @@
-.PHONY: all build test run bash tag push pull help kill clean
+.PHONY: all update build test run run_image bash tag push pull help kill clean
 .DEFAULT_GOAL := help
+SHELL = /bin/bash
 
 NAME = project-x
 NAMESPACE = barcelonapm
@@ -34,6 +35,8 @@ run_image: build ## Run the Application Docker image in the local machine.
 
 run: build ## Run the Application Docker Compose in the local machine.
 	ENVIRONMENT=$(ENVIRONMENT) \
+	OAUTH_GITHUB_KEY=$(OAUTH_GITHUB_KEY) \
+	OAUTH_GITHUB_SECRET=$(OAUTH_GITHUB_SECRET) \
 	docker-compose up --force-recreate 
 
 kill: ## Kill the compose in the local machine.
