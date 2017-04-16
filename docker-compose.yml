@@ -14,9 +14,12 @@ services:
       - ./lib:/opt/project-x/lib
       - ./public:/opt/project-x/public
       - ./templates:/opt/project-x/templates
+      - ./t:/opt/project-x/t
   postgresql:
     image: postgres:9.6-alpine
     restart: always
+    ports:
+      - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=mysecretpassword
       - POSTGRES_USER=postgres

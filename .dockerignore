@@ -3,5 +3,7 @@ Dockerfile
 docker-compose.yml
 Makefile
 README.md
+oauth.sh
+spec/*
 local/*
 pgdata/*

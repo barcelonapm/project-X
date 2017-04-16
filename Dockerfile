@@ -11,7 +11,7 @@ RUN groupadd -r xman -g 1001 \
     && useradd -u 1001 -r -g xman -d /opt/project-x/ -s /sbin/nologin -c "Docker image user" xman \
     && chown -R xman:xman /opt/project-x/
 
-RUN carton install --deployment
+RUN carton install 
 
 #Setting the PostgreSQL Host
 ENV PG_HOST=postgresql
