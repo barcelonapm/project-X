@@ -4,7 +4,7 @@ Our cool project. We use #proejectx on barcelonapm slack
 
 # Swagger spec (WIP)
 
-To render/edit the Swagger spec got to the [Swagger Editor](http://editor.swagger.io/#!/)
+To render/edit the Swagger spec go to the [Swagger Editor](http://editor.swagger.io/#!/)
 * we use  #proejectx on barcelonapm slack.
 * Dockerhub Namespace: barcelonapm 
 

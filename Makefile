@@ -43,7 +43,7 @@ kill: ## Kill the compose in the local machine.
 	docker-compose stop
 
 bash: ## Start bash in the build IMAGE_NAME.
-	docker run --rm --entrypoint=/bin/bash -it $(LOCAL_IMAGE)
+	docker-compose run --rm --entrypoint=/bin/bash mojo
 
 tag: ## Tag IMAGE_NAME
 	docker tag $(LOCAL_IMAGE) $(REMOTE_IMAGE)
