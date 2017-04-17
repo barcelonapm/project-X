@@ -5,6 +5,10 @@ services:
       - ENVIRONMENT=${ENVIRONMENT}
       - OAUTH_GITHUB_KEY=${OAUTH_GITHUB_KEY}
       - OAUTH_GITHUB_SECRET=${OAUTH_GITHUB_SECRET}
+      - OAUTH_FACEBOOK_KEY=${OAUTH_FACEBOOK_KEY}
+      - OAUTH_FACEBOOK_SECRET=${OAUTH_FACEBOOK_SECRET}
+      - OAUTH_GOOGLE_KEY=${OAUTH_GOOGLE_KEY}
+      - OAUTH_GOOGLE_SECRET=${OAUTH_GOOGLE_SECRET}
     image: project-x:latest
     ports:
      - "8080:8080"
@@ -21,7 +25,7 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD=mysecretpassword
       - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
     volumes:
       - ./pgdata:/var/lib/postgresql

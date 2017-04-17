@@ -12,6 +12,10 @@ ENVIRONMENT ?= devel
 #Oauth Secrets
 OAUTH_GITHUB_KEY ?= ''
 OAUTH_GITHUB_SECRET ?= ''
+OAUTH_FACEBOOK_KEY ?= ''
+OAUTH_FACEBOOK_SECRET ?= ''
+OAUTH_GOOGLE_KEY ?= ''
+OAUTH_GOOGLE_SECRET ?= ''
 
 LOCAL_IMAGE := $(NAME):$(RELEASE_VERSION)
 REMOTE_IMAGE := $(NAMESPACE)/$(LOCAL_IMAGE)
@@ -28,16 +32,20 @@ build: ## Build docker image with name LOCAL_IMAGE (NAME:RELEASE_VERSION).
 	docker build -f $(THISDIR_PATH)/Dockerfile -t $(LOCAL_IMAGE) $(PROJECT_PATH)
 
 test: ## Test built LOCAL_IMAGE (NAME:RELEASE_VERSION).
-	docker-compose run --rm -u 1001 -e OAUTH_GITHUB_KEY=$(OAUTH_GITHUB_KEY) -e OAUTH_GITHUB_SECRET=$(OAUTH_GITHUB_SECRET) --entrypoint=carton mojo exec prove -lv
+	docker-compose run --rm -u 1001 -e OAUTH_GITHUB_KEY=$(OAUTH_GITHUB_KEY) -e OAUTH_GITHUB_SECRET=$(OAUTH_GITHUB_SECRET) -e OAUTH_FACEBOOK_KEY=$(OAUTH_FACEBOOK_KEY) -e OAUTH_FACEBOOK_SECRET=$(OAUTH_FACEBOOK_SECRET) -e OAUTH_GOOGLE_KEY=$(OAUTH_GOOGLE_KEY) -e OAUTH_GOOGLE_SECRET=$(OAUTH_GOOGLE_SECRET) --entrypoint=carton mojo exec prove -lv
 
 run_image: build ## Run the Application Docker image in the local machine.
-	docker run --rm -u 1001 --name mojo -e OAUTH_GITHUB_KEY=$(OAUTH_GITHUB_KEY) -e OAUTH_GITHUB_SECRET=$(OAUTH_GITHUB_SECRET) -i -t -p 8080:8080 $(LOCAL_IMAGE)
+	docker run --rm -u 1001 --name mojo -e OAUTH_GITHUB_KEY=$(OAUTH_GITHUB_KEY) -e OAUTH_GITHUB_SECRET=$(OAUTH_GITHUB_SECRET) -e OAUTH_FACEBOOK_KEY=$(OAUTH_FACEBOOK_KEY) -e OAUTH_FACEBOOK_SECRET=$(OAUTH_FACEBOOK_SECRET) -e OAUTH_GOOGLE_KEY=$(OAUTH_GOOGLE_KEY) -e OAUTH_GOOGLE_SECRET=$(OAUTH_GOOGLE_SECRET) -i -t -p 8080:8080 $(LOCAL_IMAGE)
 
 run: build ## Run the Application Docker Compose in the local machine.
 	ENVIRONMENT=$(ENVIRONMENT) \
 	OAUTH_GITHUB_KEY=$(OAUTH_GITHUB_KEY) \
 	OAUTH_GITHUB_SECRET=$(OAUTH_GITHUB_SECRET) \
-	docker-compose up --force-recreate 
+    OAUTH_FACEBOOK_KEY=$(OAUTH_FACEBOOK_KEY) \
+	OAUTH_FACEBOOK_SECRET=$(OAUTH_FACEBOOK_SECRET) \
+    OAUTH_GOOGLE_KEY=$(OAUTH_GOOGLE_KEY) \
+	OAUTH_GOOGLE_SECRET=$(OAUTH_GOOGLE_SECRET) \
+	docker-compose up --force-recreate
 
 kill: ## Kill the compose in the local machine.
 	docker-compose stop
