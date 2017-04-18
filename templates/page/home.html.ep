@@ -1,0 +1,11 @@
+% layout 'default';
+% title '';
+
+<div class="inner cover">
+  <h1 class="cover-heading">Welcome <%= user_email || 'developer' %>!</h1>
+  <p class="lead">This will be the amazing app created by the folks at barcelona.pm to solve their X problem and have fun (and lots of beer) while doing it.</p>
+  <p class="lead">
+    <a href="https://github.com/barcelonapm/project-X" class="btn btn-lg btn-secondary">Learn more</a>
+  </p>
+</div>
+

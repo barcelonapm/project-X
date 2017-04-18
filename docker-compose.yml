@@ -1,0 +1,31 @@
+version: '2'
+services:
+  mojo:
+    environment:
+      - ENVIRONMENT=${ENVIRONMENT}
+      - OAUTH_GITHUB_KEY=${OAUTH_GITHUB_KEY}
+      - OAUTH_GITHUB_SECRET=${OAUTH_GITHUB_SECRET}
+      - OAUTH_FACEBOOK_KEY=${OAUTH_FACEBOOK_KEY}
+      - OAUTH_FACEBOOK_SECRET=${OAUTH_FACEBOOK_SECRET}
+      - OAUTH_GOOGLE_KEY=${OAUTH_GOOGLE_KEY}
+      - OAUTH_GOOGLE_SECRET=${OAUTH_GOOGLE_SECRET}
+    image: project-x:latest
+    ports:
+     - "8080:8080"
+    depends_on:
+     - postgresql
+    volumes:
+      - ./lib:/opt/project-x/lib
+      - ./public:/opt/project-x/public
+      - ./templates:/opt/project-x/templates
+      - ./t:/opt/project-x/t
+  postgresql:
+    image: postgres:9.6-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
+    volumes:
+      - ./pgdata:/var/lib/postgresql
