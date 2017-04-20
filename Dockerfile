@@ -13,9 +13,6 @@ RUN groupadd -r xman -g 1001 \
 
 RUN carton install 
 
-#Setting the PostgreSQL Host
-ENV PG_HOST=postgresql
-
 USER 1001
 EXPOSE 8080
 ENTRYPOINT ["/opt/project-x/entrypoint.sh"]
