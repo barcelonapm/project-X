@@ -19,6 +19,7 @@ sub setup_routes($app) {
 
     $anon->get('/signin')->to('auth#signin');
     $anon->get('/signin/oauth/:provider')->to('auth#oauth_with')->name('oauth_with');
+    $anon->post('/signin/act')->to('auth#with_act')->name('signin_with_act');
 
     $auth->get('/about')->to('page#about')->name('about');
     $auth->get('/signout')->to('auth#signout')->name('signout');

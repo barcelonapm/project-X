@@ -1,14 +1,14 @@
 % layout 'default';
 % title 'Sign in';
 <div class="inner cover">
-  <form class="form-signin" action="/signin/xxx">
+  <%= form_for signin_with_act => (class=>"form-signin") => begin %>
     <h2 class="form-signin-heading">Sign in with ACT</h2>
     <label for="inputUsername" class="sr-only">Username</label>
-    <input type="text" id="inputUsername" class="form-control" placeholder="Your username" required="" autofocus="">
+    <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Your username" required="" autofocus="">
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  </form>
+  <% end %>
   </div>
   <div class="inner cover" style="margin-top:30px;">
   % for my $provider ( oauth_providers->@* ) {

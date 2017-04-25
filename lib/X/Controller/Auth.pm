@@ -3,6 +3,8 @@ use Mojo::Base 'Mojolicious::Controller';
 use v5.24; use feature qw(signatures);
 no warnings qw(experimental::signatures);
 
+use X::ACT::Client;
+
 sub signin($c) {}
 
 sub signout($c) {
@@ -29,6 +31,25 @@ sub not_logged_in($c) {
     }
 
     1;
+}
+
+# GET /signin/act
+# Handle the login proccess using some ACT instance as backend
+sub with_act($c) {
+    my $act = X::ACT::Client->new(
+        user     => $c->param('username'),
+        password => $c->param('password'),
+        ua       => $c->ua
+    );
+
+    $c->delay(
+        sub { $act->login( shift->begin ) },
+        sub { $act->userdata( shift->begin ) },
+        sub {
+            my $ud = pop;
+            $c->_authorized( $ud->{email} );
+        }
+    );
 }
 
 # GET /signin/oauth/:provider
