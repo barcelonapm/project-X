@@ -7,7 +7,7 @@
     <meta name="author" content="barcelona.pm">
     <link rel="icon" href="/favicon.ico">
     <title><%= title ? title.' - ' : '' %>Project X</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css?v4" rel="stylesheet">
     <link href="/css/x.css" rel="stylesheet">
   </head>
   <body>
