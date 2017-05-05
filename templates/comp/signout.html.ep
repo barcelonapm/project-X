@@ -1,9 +1,13 @@
-<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i>
-<%=user_email%> <b class="caret"></b></a>
+% use Gravatar::URL;
+<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
+<%= tag 'img' => (src => gravatar_url(email => user_email, https => 1, size => 20, default => 'mm')) %>
+<b class="caret"></b></a>
     <ul class="dropdown-menu">
-        <li><a href="#">My profile</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
+        <li class="dropdown-header">Logged in as <div><%=user_email%></div></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#"><i class="fa fa-fw fa-user"></i> My profile</a></li>
+        <li><a href="#"><i class="fa fa-fw fa-wrench"></i> Another action</a></li>
+        <li><a href="#"><i class="fa fa-fw fa-bell"></i> Something else here</a></li>
         <li role="separator" class="divider"></li>
         <li><a class="nav-link" href="/signout"><i class="fa fa-fw fa-sign-out"></i> Sign out</a></li>
     </ul>
