@@ -28,12 +28,14 @@
                 </div>
             </div>
         </li>
+% if (oauth_providers) {
         <li class="divider"></li>
         <li>
-% for my $provider ( oauth_providers->@* ) {
+%   for my $provider ( oauth_providers->@* ) {
         <%= link_to url_for( oauth_with => { provider => $provider } ),
             class => 'col-3 btn btn-primary btn-lg' => begin %><i class="fa fa-<%=$provider%>"></i>
             Sign in with <%=$provider%><% end %>
+%   }
 % }
         </li>
     </ul>
