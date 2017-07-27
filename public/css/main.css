@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:700,800,900|Rock+Salt|Montserrat:700');
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin-top: 50px;
+}
+
+.wow {
+    visibility: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
+}
+
+h1 {
+    text-align: center;
+}
+
+#home h1 {
+    text-transform: none;
+    -webkit-font-smoothing: antialias;
+    font-family: 'Rock Salt', cursive;
+    font-size: 4em;
+    color: #fff;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding-top: 1em;
+}
+
+#home h2 {
+    font-size: 2.2em;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 1em 0;
+}
+
+#home h3 {
+    font-size: 1.7em;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 1em 0;
+}
+
+section {
+    padding: 80px 0;
+    min-height: 95%;
+}
+
+#home {
+    min-height: 100%;
+    background: url(/img/home.jpeg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+#home .title {
+    height: 60%;
+}
+
+#home .buttons {
+    height: 50%;
+}
+
+#home .more {
+    height: 10%;
+}
+
+#about,
+#sponsors {
+    background-color: #dd6666;
+    color: #dddd00;
+}
+
+#schedule {
+    background: url(/img/schedule.jpeg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+#sponsors h1,
+#schedule h1,
+#venue h1 {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 48px;
+}
+
+#schedule .day-schedule {
+    margin: 1em auto;
+    background-color: rgba(1, 1, 1, 0.5);
+    color: #fff;
+    margin-top: 48px;
+}
+
+.day-schedule .title {
+    font-size: 1.1em;
+    padding: 0.5em 0;
+    background-color: rgba(1, 1, 1, 0.2);
+    text-align: center;
+}
+
+.day-schedule ul {
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    padding: 16px;
+    list-style: none;
+}
+
+.day-schedule a {
+    color: #ddd;
+    text-decoration: underline;
+}
+
+#speakers {
+    background-color: #ddd;
+}
+
+#register {
+    background: url(/img/register.jpeg) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 50%;
+}
+
+#sponsors {
+    min-height: 50%;
+}
+
+#sponsors .sponsor {
+    text-align: center;
+    color: #ddd;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 3em;
+    font-weight: 800;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 48px 12px;
+    margin: 12px 0;
+}
+
+#contact {
+    background-color: #ffffff;
+    min-height: 80%;
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    min-height: 240px;
+}
+
+#contact .row {
+    margin-top: 48px;
+}
+
+#contact .icon {
+    font-size: 4em;
+    color: #fff;
+    text-shadow: -1px -1px 2px #444, 1px 1px 2px #fff;
+    background-color: #007ba4;
+    width: 1.6em;
+    height: 1.6em;
+    margin: 0 auto;
+    padding-top: 0.1em;
+    border-radius: 0.8em;
+}
+
+div.contact-details > div {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+div.contact-details h2 {
+    border-bottom: 2px solid #000;
+}
+
+.powered-by-eb {
+    color: #dddddd;
+    text-decoration: none;
+}
+
+.speaker-info {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.speaker-info .name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0.5em 0;
+}
+
+.speaker-modal .modal-header {
+    text-align: center;
+}
+
+.speaker-social {
+    padding-top: 12px;
+}
+
+.mugshot {
+    width: 140px;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.speaker-info:hover .mugshot {
+    padding: 0;
+}
+
+#venue {
+    background-color: #d9534f;
+}
+
+#venue #map {
+    width: 100%;
+    height: 360px;
+}

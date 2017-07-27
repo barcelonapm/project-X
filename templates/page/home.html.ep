@@ -1,11 +1,245 @@
 % layout 'default';
 % title '';
 
-<div class="inner cover">
-  <h1 class="cover-heading">Welcome <%= user_email || 'developer' %>!</h1>
-  <p class="lead">This will be the amazing app created by the folks at barcelona.pm to solve their X problem and have fun (and lots of beer) while doing it.</p>
-  <p class="lead">
-    <a href="https://github.com/barcelonapm/project-X" class="btn btn-lg btn-secondary">Learn more</a>
-  </p>
+<section id="home">
+    <div class="title">
+        <h1 class="wow fadeInUp" data-wow-delay="500ms" data-wow-duration="2s">Project X</h1>
+        <h2>Welcome <%= user_email || 'developer' %>!</h2>
+        <h3>This will be the amazing app created by the folks at barcelona.pm to solve their X problem and have fun (and lots of beer) while doing it.</h3>
+    </div>
+    <div class="buttons">
+        <div class="text-center">
+            <a href="#about" class="col-3 btn btn-danger btn-lg wow pulse" data-wow-delay="3s"><i
+                    class="fa fa-arrow-down wow fadeOutDown infinite" data-wow-iteration="3"
+                    data-wow-delay="6s" data-wow-duration="2s"></i>
+                Read
+                more</a>
+            <a href="#register" class="col-3 btn btn-danger btn-lg wow pulse" data-wow-delay="5s"><i
+                    class="fa fa-edit"></i>
+                Register</a>
+<a href="https://github.com/barcelonapm/project-X" class="col-3 btn btn-danger btn-lg wow pulse"
+data-wow-delay="10s"><i class="fa fa-github-alt"></i> Fork</a>
+
+
+        </div>
+    </div>
+    <div class="more">
+
+    </div>
+</section>
+<section id="about">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1>About Project X</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="schedule">
+    <div class="container-fluid">
+        <h1>Schedule</h1>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="day-schedule wow fadeInUp">
+                    <div class="title">Saturday, July 1st 2017</div>
+                    <ul class="">
+                        <li>09:00 // Registration and welcome coffee</li>
+                        <li>09:30 // Opening and intro // <a href="#speaker01">Speaker</a></li>
+                        <li>10:00 // Virtually convert a ship. // <a href="#speaker02">Speaker</a></li>
+                        <li>11:00 // Always eat a sonic shower. // <a href="#speaker03">Speaker</a></li>
+                        <li>12:00 // Where is the neutral collective. // <a href="#speaker04">Speaker</a></li>
+                        <li>13:00 // Lunch</li>
+                        <li>14:00 // Where is the lunar teleporter. // <a href="#speaker05">Speaker</a></li>
+                        <li>15:00 // Why does the ship tremble. // <a href="#speaker06">Speaker</a></li>
+                        <li>16:00 // Coffee break</li>
+                        <li>17:00 // The ship is proudly futile. // <a href="#speaker07">Speaker</a></li>
+                        <li>18:00 // The machine is bravely remarkable. // <a href="#speaker08">Speaker</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section id="speakers">
+    <div class="container-fluid">
+
+        <h1>Speakers</h1>
+        <div id="speaker-list" class="row">
+        </div>
+
+    </div>
+</section>
+<section id="register">
+    <div class="container-fluid">
+        <iframe src="//eventbrite.com/tickets-external?eid=25374303224&ref=etckt" frameborder="0" height="346"
+                width="100%"
+                vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto"
+                allowtransparency="true"></iframe>
+        <div style="font-family:Helvetica, Arial; font-size:10px; padding:5px 0 5px; margin:2px; width:100%; text-align:left;">
+            <a class="powered-by-eb" style="" target="_blank"
+               href="http://www.eventbrite.com/r/etckt">Powered by Eventbrite</a></div>
+    </div>
+</section>
+<section id="sponsors">
+    <div class="container-fluid">
+        <h1>Our sponsors</h1>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0ms">
+                <div class="sponsor">Sponsor</div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="500ms">
+                <div class="sponsor">Sponsor</div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="1000ms">
+                <div class="sponsor">Sponsor</div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="1500ms">
+                <div class="sponsor">Sponsor</div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="2000ms">
+                <div class="sponsor">Sponsor</div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="2500ms">
+                <div class="sponsor">Sponsor</div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="3000ms">
+                <div class="sponsor">Sponsor</div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="3500ms">
+                <div class="sponsor">Sponsor</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contact">
+    <div class="container-fluid">
+        <h1>Contact Information</h1>
+        <div class="row contact-details">
+            <div class="wow animated fadeInDown col-md-4 col-sm-4" data-wow-duration="1s" data-wow-delay="0.7s">
+                <div class="icon"><i class="fa fa-phone"></i></div>
+                <div class="light-box box-hover">
+                    <h2>Phone</h2>
+                    <p><a href="tel:+001234567">+00 123 4567</a></p>
+                </div>
+            </div>
+            <div class="wow animated fadeInDown col-md-4 col-sm-4" data-wow-duration="1s" data-wow-delay="0.5s">
+                <div class="light-box box-hover">
+                    <div class="icon"><i class="fa fa-map-marker"></i></div>
+                    <h2>Location</h2>
+                    <p>123 Gummy Road</p>
+                    <a class="btn btn-primary btn-lg btn-block"
+                       href="https://www.google.es/maps/place/Pla%C3%A7a+de+Catalunya/@41.3896095,2.1622841,16z/data=!4m13!1m7!3m6!1s0x12a49816718e30e5:0x44b0fb3d4f47660a!2sBarcelona!3b1!8m2!3d41.3850639!4d2.1734035!3m4!1s0x0:0x1eecc2af1c60d64b!8m2!3d41.387016!4d2.1700466"
+                       target="_blank">
+                        <i class="fa fa-location-arrow"></i> View in map
+                    </a>
+                </div>
+            </div>
+            <div class="wow animated fadeInDown col-md-4 col-sm-4" data-wow-duration="1s" data-wow-delay="0.9s">
+                <div class="icon"><i class="fa fa-envelope"></i></div>
+                <div class="light-box box-hover">
+                    <h2>Email</h2>
+                    <p><a href="mailto:nospam-email@domain.com">email@domain.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="venue">
+    <div class="container-fluid">
+        <div class="row">
+            <h1>Venue</h1>
+            <div class="col-md-5 col-md-offset-1">
+                <h2>Getting there</h2>
+                The conference will be held at <a href="#">venue</a>:
+                <p class="h-adr">
+                    <span class="p-street-address">123 Gummy Road</span>
+                    <span class="p-locality">Barcelona</span>
+                    <span class="p-country-name">Spain</span>
+                    <span class="p-postal-code">08002</span>
+                </p>
+                <h3>Public transit</h3>
+                <ul class="fa-ul">
+                    <li><i class="fa fa-li fa-bus"></i> Bus 00, 00, 00</li>
+                    <li><i class="fa fa-li fa-train"></i> Train 00, 00, 00</li>
+                    <li><i class="fa fa-li fa-subway"></i> Subway 00, 00, 00</li>
+                </ul>
+                <h3>Accomodation</h3>
+                Nearby hotels:
+                <ul class="fa-ul">
+                    <li><i class="fa fa-li fa-hotel"></i> <a href="#">Hotel 1</a></li>
+                    <li><i class="fa fa-li fa-hotel"></i> <a href="#">Hotel 2</a></li>
+                    <li><i class="fa fa-li fa-hotel"></i> <a href="#">Hotel 3</a></li>
+                </ul>
+
+            </div>
+            <div class="col-md-5">
+                <iframe id="map" style=""
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5986.570658222298!2d2.1622841!3d41.3896095!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1eecc2af1c60d64b!2sPla%C3%A7a+de+Catalunya!5e0!3m2!1sen!2ses!4v1493310120610"
+                        frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script id="speaker-template" type="text/x-handlebars-template">
+
+            <a href="#" data-toggle="modal" data-target="#speakerModal{{id}}">
+                <div id="speaker{{id}}" class="speaker-info col-lg-3 col-md-4 col-sm-6 col-xs-12 wow fadeInUp"
+                     data-wow-duration="1500ms"
+                     data-wow-delay="{{_delay}}ms">
+
+                    <img src="{{photo}}" class="mugshot img-circle">
+                    <div class="name">{{name}}</div>
+                </div>
+            </a>
+
+
+<div class="speaker-modal modal animated flipInX" id="speakerModal{{id}}" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <img src="{{photo}}" class="mugshot img-circle">
+                <h4 class="modal-title" id="speaker-name">{{name}}</h4>
+            </div>
+            <div class="modal-body">
+                <span id="speaker-bio">Speaker bio.
+{{bio}}
+                </span>
+                <div class="speaker-social">
+                    <a href="#"><i class="fa fa-fw fa-2x fa-twitter-square"></i></a>
+                    <a href="#"><i class="fa fa-fw fa-2x fa-github-square"></i></a>
+                    <a href="#"><i class="fa fa-fw fa-2x fa-facebook-square"></i></a>
+                    <a href="#"><i class="fa fa-fw fa-2x fa-linkedin-square"></i></a>
+                    <a href="#"><i class="fa fa-fw fa-2x fa-google-plus-square"></i></a>
+                    <a href="#"><i class="fa fa-fw fa-2x fa-envelope-square"></i></a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
+</script>
