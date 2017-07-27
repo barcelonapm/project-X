@@ -2,6 +2,7 @@ package X;
 use Mojo::Base 'Mojolicious';
 use v5.24; use feature qw(signatures);
 no warnings qw(experimental::signatures);
+use X::Schema;
 
 # This method will run once at server start
 sub startup($app) {
@@ -55,7 +56,19 @@ sub setup_oauth_providers($app) {
 sub setup_helpers {
     my $app = shift;
 
-    $app->helper( 'user_email' => sub { shift->session( 'email', shift//() ) } );
+    $app->helper( user_email => sub{ shift->session( 'email', shift//() ) } );
+
+    my $schema;
+    $app->helper( schema => sub{
+        $schema ||= X::Schema->connect(
+            sprintf( 'dbi:Pg:dbname=x;host=%s;port=%d', $ENV{DB_HOST}, $ENV{DB_PORT}||5432 ),
+            $ENV{DB_USER}, $ENV{DB_PASS}, {AutoCommit => 1, RaiseError => 1}
+        );
+    });
+
+    for my $r (qw/ User Event Talk /) {
+        $app->helper( lc($r).'s' => sub{ shift->schema->resultset($r) } );
+    }
 }
 
 1;
